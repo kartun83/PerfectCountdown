@@ -1,0 +1,5 @@
+<resources>
+    <string name="hello_world">Kartun WearOS app!</string>
+    <string name="resetButton">Reset</string>
+    <string name="headerText">None</string>
+</resources>
