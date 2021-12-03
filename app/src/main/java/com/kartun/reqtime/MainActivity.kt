@@ -3,34 +3,34 @@ package com.kartun.reqtime
 import android.app.Activity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Debug
 import android.widget.TextView
 import com.kartun.reqtime.databinding.ActivityMainBinding
 import java.util.*
-import kotlin.concurrent.timer
-import android.util.Log
+
 
 class MainActivity() : Activity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var counter: Int = 30
-    private var current : Int = counter
+    private var mTimer : TimerData = TimerData("Test", "Finished", 3, 10, 1) //counter: Int = 30
     private var reps: Int = 3
     private var timerRunning: Boolean = false
+    private lateinit var mTimerController : TimerController
 
-    private var lTimer: CountDownTimer = object : CountDownTimer(30000, 1000) {
+    private var lTimer: CountDownTimer = object : CountDownTimer( mTimer.duration.toLong() * 1000, 1000) {
         // override object functions here, do it quicker by setting cursor on object, then type alt + enter ; implement members
 
         override fun onTick(millisUntilFinished: Long) {
 //            TODO("Not yet implemented")
-            current--
-            //conso
-            Log.d("Test tick", current.toString())
+//            mTimer.current--
             val counterMain: TextView = findViewById(R.id.counterMain)
-            counterMain.text = "${current}"
+            counterMain.text = "${millisUntilFinished / 1000}"
         }
 
-        override fun onFinish() { }
+        override fun onFinish() {
+            val counterMain: TextView = findViewById(R.id.counterMain)
+            "${mTimer.textAfter} ${mTimer.timeoutAfter}".also { counterMain.text = it }
+
+        }
         fun setControl(control: TextView)
         {
 
@@ -47,21 +47,21 @@ class MainActivity() : Activity() {
         val counterMain: TextView = findViewById(R.id.counterMain)
         val headerMain: TextView  = findViewById(R.id.headerText)
 
-        //current.apply { counterMain.text = "test $current" }
+        mTimerController = TimerController()
 
          counterMain.setOnClickListener {
-             Log.d("main click", current.toString())
-             Log.d("main click",timerRunning.toString())
-            //counterMain.text = "${counter}"
-            if (timerRunning)
+             this.mTimerController.startChain()
+             if (timerRunning)
             {
                 lTimer.cancel()
-                headerMain.text = "${counter} * ${reps}"
+                headerMain.text = "None"
             }
             else
             {
+                mTimer.current = mTimer.duration
                 lTimer.start()
-                headerMain.text = "None";
+                headerMain.text = "${mTimer.duration} * ${reps}"
+
             }
             timerRunning =! timerRunning
         }
