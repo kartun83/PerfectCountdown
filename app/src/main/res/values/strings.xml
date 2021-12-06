@@ -7,4 +7,15 @@
     <string name="hello_world">Kartun WearOS app!</string>
     <string name="resetButton">Reset</string>
     <string name="headerText">None</string>
+    <string name="title_activity_timer_setup">TimerSetup</string>
+
+    <!-- Settings activity -->
+    <string name="settings_header">Timer settings</string>
+    <string name="step_reps">Amount of repetitions</string>
+    <string name="step_name">Step name</string>
+    <string name="delay_after">Delay after, sec</string>
+    <string name="step_duration">Step duration,sec</string>
+    <string name="text_after">Text after rep completed</string>
+    <string name="timerStepDoneButton">Done</string>
+
 </resources>

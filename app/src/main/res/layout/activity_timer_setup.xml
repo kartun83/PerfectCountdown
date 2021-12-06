@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/box_inset_layout_padding"
+    tools:context=".TimerSetup" >
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/TimerSettingsHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_header"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <EditText
+                android:id="@+id/editTimerStepDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:forceDarkAllowed="true"
+                android:hint="@string/step_duration"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/editTimerStepName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/step_name"
+                android:inputType="textPersonName"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/editTimerStepReps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/step_reps"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/editTimerStepDelayAfter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/delay_after"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/editTimerSetpTextAfter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/text_after"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/stepEditCompletedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:hapticFeedbackEnabled="true"
+                android:text="@string/timerStepDoneButton" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
